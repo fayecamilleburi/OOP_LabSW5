@@ -8,7 +8,7 @@ public class AuthorDA {
         return authorMap;
     }
 
-    public AuthorDA(String authorName) {
+    public AuthorDA() {
         try {
             Scanner authorFile = new Scanner(new FileReader("Author.csv"));
 
@@ -16,21 +16,18 @@ public class AuthorDA {
 
             authorFile.nextLine();
 
-            Integer key = 0;
             while(authorFile.hasNext()) {
+
+                authorMap = new HashMap<>();
                 String authorLineData = new String();
                 authorLineData = authorFile.nextLine();
 
                 String[] authorLineDataSpecific = new String[2];
                 authorLineDataSpecific = authorLineData.split(",");
 
-                if (authorName.equals(authorLineDataSpecific[0].trim())) {
-                    Author author = new Author();
-                    author.setBio(authorLineDataSpecific[1].trim());
-
-                    authorMap.put(authorName+key, author);
-                    key++;
-                }
+                Author author = new Author();
+                author.setName(authorLineDataSpecific[0].trim());
+                author.setBio(authorLineDataSpecific[1].trim());
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);

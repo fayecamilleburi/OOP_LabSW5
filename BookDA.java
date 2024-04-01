@@ -23,13 +23,13 @@ public class BookDA {
                 Book book = new Book();
                 book.setIsbn(bookLineDataSpecific[0].trim());
                 book.setTitle(bookLineDataSpecific[1].trim());
-                book.setAuthorName(bookLineDataSpecific[2].trim());
-
                 readBio(book);
 
+                String name = "";
                 String bio = "";
                 Integer counter = 0;
                 for (Map.Entry<String, Author> entryMap : book.getAuthorMap().entrySet()) {
+                    name = entryMap.getValue().getName();
                     bio = entryMap.getValue().getBio();
                     counter++;
                 }
@@ -49,7 +49,7 @@ public class BookDA {
     }
 
     private void readBio(Book book) {
-        AuthorDA authorDA = new AuthorDA(book.getAuthorName());
+        AuthorDA authorDA = new AuthorDA();
         book.setAuthorMap(authorDA.getAuthorMap());
     }
 }
