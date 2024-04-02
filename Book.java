@@ -4,7 +4,7 @@ public class Book {
 
     private String isbn;
     private String title;
-    private HashMap<String, Author> authorMap;
+    private HashMap<String, Author> Author;
 
     //Setter methods
     public void setIsbn(String isbn) {
@@ -15,8 +15,8 @@ public class Book {
         this.title = title;
     }
 
-    public void setAuthorMap(HashMap<String, Author> authorMap) {
-        this.authorMap = authorMap;
+    public void setAuthor(HashMap<String, Author> Author) {
+        this.Author = Author;
     }
 
     //Getter methods
@@ -29,6 +29,6 @@ public class Book {
     }
 
     public HashMap<String, Author> getAuthorMap() {
-        return authorMap;
+        return Author;
     }
 }

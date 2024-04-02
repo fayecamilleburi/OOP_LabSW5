@@ -2,23 +2,20 @@ import java.io.*;
 import java.util.*;
 
 public class AuthorDA {
-    private HashMap<String, Author> authorMap;
+    private HashMap<String, Author> Author;
 
-    public HashMap<String, Author> getAuthorMap() {
-        return authorMap;
+    public HashMap<String, Author> getAuthor() {
+        return Author;
     }
 
     public AuthorDA() {
         try {
             Scanner authorFile = new Scanner(new FileReader("Author.csv"));
-
-            authorMap = new HashMap<>();
-
             authorFile.nextLine();
 
-            while(authorFile.hasNext()) {
+            Author = new HashMap<>();
 
-                authorMap = new HashMap<>();
+            while(authorFile.hasNext()) {
                 String authorLineData = new String();
                 authorLineData = authorFile.nextLine();
 
@@ -28,6 +25,8 @@ public class AuthorDA {
                 Author author = new Author();
                 author.setName(authorLineDataSpecific[0].trim());
                 author.setBio(authorLineDataSpecific[1].trim());
+
+                Author.put(author.getName(), author);
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
