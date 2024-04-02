@@ -8,6 +8,7 @@ Create a report that will display the isbn, book title, author's name and bio ba
 Use hashmap.  Use isbn as your key. Use FileReader in accessing the files.
 
 Access the following files:
+
 ![CSVFiles](image-2.png)
 
 Use the following sequence diagram in the implementation of the codes:
